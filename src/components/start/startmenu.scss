@@ -1,0 +1,392 @@
+.desktopCont {
+  width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.dskApp {
+  margin: 4px;
+  height: 86px;
+  width: 76px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.8em;
+  transition: all ease-in-out 200ms;
+  justify-content: center;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  .appName {
+    text-align: center;
+    color: #fafafa;
+    margin-top: 4px;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
+  }
+}
+
+.startMenu {
+  --bg1: rgba(242, 242, 242, 0.9);
+  --bg2: rgba(255, 255, 255, 0.9);
+  --roundRad: 6px;
+
+  position: absolute;
+  bottom: 10px;
+  width: 520px;
+  left: 0;
+  &[data-align="center"] {
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+    text-align: center;
+  }
+
+  &[data-align="left"] {
+    left: 8px;
+  }
+
+  color: var(--dark-txt);
+  background: var(--bg1);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border-radius: var(--roundRad);
+  overflow: hidden;
+  transition: all 0.2s cubic-bezier(0.79, 0.14, 0.15, 0.86);
+  z-index: 9999;
+
+  &[data-hide="true"] {
+    transform: translateY(100px);
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+body[data-theme="dark"] .startMenu {
+  --bg1: rgba(36, 36, 36, 0.8);
+  --bg2: rgba(255, 255, 255, 0.1);
+
+  .blueicon{
+    filter: brightness(4);
+  }
+}
+
+.allCont,
+.stmenu {
+  position: relative;
+  width: 520px;
+  height: 480px;
+
+  &[data-allapps="false"] {
+    transition: ease-in-out 200ms;
+  }
+
+  &[data-allapps="true"] {
+    // margin-left: -520px;
+    transform: translateX(-520px);
+    transition: ease-in-out 200ms;
+  }
+}
+
+.allCont {
+  top: 0;
+  position: absolute;
+  left: 100%;
+  overflow: hidden;
+}
+
+.menuBar {
+  max-width: 100%;
+  height: 54px;
+  padding: 0 48px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.1); // fine in dark mode too :)
+}
+
+.profile {
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+  .usName {
+    margin-left: 12px;
+    font-size: 0.7em;
+    font-weight: 400;
+    color: var(--txt-col);
+  }
+}
+
+.menuUp {
+  padding: 36px 48px;
+}
+
+.stAcbar {
+  display: flex;
+  justify-content: space-between;
+
+  .gpname {
+    font-weight: 600;
+    font-size: 0.74em;
+    color: var(--dark-col);
+  }
+
+  .gpbtn {
+    background: var(--bg2);
+    padding: 0 8px 2px;
+    font-size: 0.64em;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    border-radius: 3px;
+    box-shadow: 1px 1px 2px rgba(34, 34, 34, 0.25);
+    cursor: pointer;
+
+    svg {
+      margin-left: 4px;
+      padding-top: 2px;
+      color: var(--med-txt);
+    }
+
+    .chevLeft svg {
+      margin-left: 0;
+      margin-right: 4px;
+    }
+  }
+}
+
+.pnApps {
+  min-height: 150px;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-between;
+  justify-content: space-between;
+
+  .pnApp {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0;
+    position: relative;
+
+    &[value="true"] .pnIcon::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      width: 4px;
+      height: 4px;
+      border-radius: 6px;
+      background: var(--clrPrm);
+    }
+
+    .pnIcon::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      top: -12px;
+      padding: 0 42px 60px;
+      background: transparent;
+      z-index: -1;
+      transition: all ease-in-out 100ms;
+      border-radius: 4px;
+    }
+
+    .appName {
+      width: 24px;
+      display: flex;
+      color: var(--txt-col);
+      margin-top: 4px;
+      font-weight: 500;
+      font-size: 0.64em;
+      text-align: center;
+      white-space: nowrap;
+      justify-content: center;
+      cursor: default;
+    }
+
+    &:nth-child(6n + 1) {
+      width: 10%;
+      align-items: flex-start;
+    }
+
+    &:nth-child(6n) {
+      width: 10%;
+      align-items: flex-end;
+    }
+  }
+
+  .pnApp:hover .pnIcon::after {
+    background: var(--bg2);
+  }
+}
+
+.pnEmpty {
+  pointer-events: none;
+}
+
+.recApps {
+  margin-top: 12px;
+}
+
+.reApps {
+  width: 100%;
+  height: 150px;
+  padding: 10px 0;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 240px 184px;
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+
+  .rnApp {
+    display: flex;
+    align-items: center;
+
+    .acInfo {
+      width: 100px;
+      text-align: left;
+      margin: 0 12px;
+
+      .appName {
+        color: var(--txt-col);
+        font-size: 0.7em;
+        font-weight: 700;
+      }
+
+      .timeUsed {
+        color: var(--gray-txt);
+        font-size: 0.6em;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+.appCont {
+  position: relative;
+  padding: 36px 4px 36px 36px;
+
+  .stAcbar {
+    padding-left: 12px;
+    padding-right: 44px;
+  }
+}
+
+.allApps {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  overflow-x: visible;
+  overflow-y: scroll;
+  transition: all ease-in-out 200ms;
+  transform-origin: center;
+
+  &[data-alpha="true"] {
+    transform: scale(0);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+    width: 1.6px;
+    background: transparent;
+  }
+
+  &:hover::-webkit-scrollbar {
+    display: block;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    width: 1.6px;
+    border-radius: 10px;
+    background: var(--sat-txt);
+  }
+
+  .allApp {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 8px 0 8px 12px;
+    z-index: 1;
+    cursor: pointer;
+
+    &:hover::after {
+      content: "";
+      position: absolute;
+      width: 94%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      border-radius: 4px;
+      background: var(--bg2);
+    }
+
+    .ltName {
+      width: 18px;
+      text-align: center;
+      font-size: 0.76em;
+      font-weight: 400;
+    }
+
+    .appName {
+      text-align: left;
+      width: 20%;
+      padding-left: 4px;
+      color: var(--txt-col);
+      font-weight: 500;
+      font-size: 0.6em;
+      margin: 0 12px;
+    }
+  }
+}
+
+.alphaBox {
+  position: absolute;
+  top: 14%;
+  width: 94%;
+  height: 80%;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  transform-origin: center;
+  transition: all ease-in-out 200ms;
+
+  &[data-alpha="false"] {
+    opacity: 0;
+    transform: scale(2);
+    pointer-events: none;
+  }
+}
+
+.alphaCont {
+  margin-left: -48px;
+  width: 160px;
+  height: 280px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(7, minmax(0, 1fr));
+  color: var(--txt-col);
+  cursor: pointer;
+
+  .allApp {
+    display: grid;
+    place-items: center;
+  }
+
+  .dullApp {
+    cursor: default;
+    color: var(--sat-txt);
+  }
+}

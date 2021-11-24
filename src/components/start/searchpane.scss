@@ -1,0 +1,152 @@
+.searchMenu {
+  min-height: 500px;
+  padding: 12px;
+  text-align: left;
+}
+
+.searchBar {
+  height: 30px;
+  border-bottom: solid 2px var(--clrPrm);
+  border-radius: 6px;
+  background: var(--bg1);
+  display: flex;
+  padding: 0 10px;
+
+  .uicon {
+    filter: brightness(0.6);
+    margin-right: 12px;
+  }
+
+  input {
+    width: 400px;
+    background: var(--bg1);
+    color: var(--txt-col);
+  }
+}
+
+.topApp {
+  background: var(--bg2);
+}
+
+.smatch {
+  background: var(--bg2);
+}
+
+.opts {
+  color: var(--med-txt);
+
+  div {
+    border: solid 0 var(--clrPrm);
+    cursor: pointer;
+
+    &[value="true"] {
+      border-bottom-width: 2px;
+      color: var(--dark-txt);
+    }
+  }
+}
+
+.leftSide {
+  width: 100%;
+}
+
+.leftSide[data-width="true"] {
+  width: 32%;
+}
+
+.rightSide {
+  margin: 8px;
+  height: 400px;
+  background: var(--bg2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .hline {
+    width: 90%;
+    height: 1px;
+    border-radius: 10px;
+    background: var(--bg2);
+  }
+}
+
+.topApp {
+  width: 19%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 4px;
+}
+
+.qksrch {
+  color: var(--txt-col);
+
+  &:hover {
+    background: var(--bg2);
+  }
+}
+
+.qksrch svg {
+  color: var(--med-txt);
+}
+
+.calnpane {
+  --bg1: rgba(242, 242, 242, 0.9);
+
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: var(--bg1);
+  color: var(--dark-txt);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  overflow: hidden;
+  transition: all ease-in-out 200ms;
+  z-index: 9999;
+  border-radius: 6px;
+
+  &[data-hide="true"] {
+    bottom: 10px;
+    transform: translateX(120%);
+    animation: overflow-hider 0s ease-in-out 0.2s forwards;
+  }
+}
+
+body[data-theme="dark"] .calnpane {
+  --bg1: rgba(36, 36, 36, 0.8);
+}
+
+.powerCont {
+  position: absolute;
+  top: -90px;
+  left: -68px;
+  width: 96px;
+  font-size: 12px;
+  background: var(--bg2);
+  padding: 4px 6px;
+  border-radius: 6px;
+  box-shadow: 2px 2px 12px rgba(46, 40, 40, 0.25);
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: all 200ms ease-in-out;
+
+  &[data-vis="true"] {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .flex {
+    padding: 4px 6px;
+    border-radius: 4px;
+
+    &:hover {
+      background: var(--bg2);
+    }
+  }
+
+  .uicon {
+    margin-right: 8px;
+  }
+}
