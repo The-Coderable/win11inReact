@@ -204,8 +204,8 @@ export const StartMenu = () => {
           </div>
           <div className="menuBar">
             <div className="profile handcr">
-              <Icon src="blueProf" ui rounded width={26} click="EXTERNAL" payload="https://blueedge.me" />
-              <div className="usName">Blue Edge</div>
+              <Icon src="blueProf" ui rounded width={26} click="EXTERNAL" payload="https://coderable.me" />
+              <div className="usName">Coderable</div>
             </div>
             <div className="relative">
               <div className="powerCont" data-vis={start.pwctrl}>
