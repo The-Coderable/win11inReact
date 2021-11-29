@@ -53,7 +53,7 @@ var apps = [{
   type: 'app'
 },
 {
-  name: 'Blue',
+  name: 'Coderable',
   icon: 'win/userDir',
   type: 'short'
 }, {
