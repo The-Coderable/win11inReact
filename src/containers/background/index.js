@@ -129,7 +129,7 @@ export const LockScreen = (props) => {
       <div className="fadeinScreen" data-faded={!lock} data-unlock={unlocked}>
         <Image className="rounded-full overflow-hidden"
           src="/img/asset/prof.jpg" w={160} ext/>
-        <div className="mt-2 text-xl font-medium text-gray-200">Blue Edge</div>
+        <div className="mt-2 text-xl font-medium text-gray-200">Coderable</div>
         <div className="flex items-center mt-6">
           <input type={passType?"text":"password"} value={password} onChange={action}
             data-action="inpass" onKeyDown={action2} placeholder={passType?"Password":"PIN"}/>
