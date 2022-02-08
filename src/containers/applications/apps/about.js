@@ -52,15 +52,15 @@ export const AboutWin = () => {
             <br />
             <div>
               This project is licensed under{" "}
-              <a target="_blank" href="https://github.com/blueedgetechno/win11React/blob/master/LICENSE">
-                Creative Commons
+              <a target="_blank" href="https://github.com/The-Coderable/win11inReact/blob/master/LICENSE">
+                Creative Commons 2.0
               </a>
               .
             </div>
             <div className="mt-1">
               &nbsp;&nbsp; &nbsp;&nbsp; contact:{" "}
-              <a target="_blank" href="mailto:blueedgetechno@gmail.com">
-                blueedgetechno@gmail.com
+              <a target="_blank" href="mailto:contact@coderable.studio">
+                contact@coderable.studio
               </a>
             </div>
             <br />
